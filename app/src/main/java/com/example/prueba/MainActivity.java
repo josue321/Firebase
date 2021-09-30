@@ -30,14 +30,14 @@ public class MainActivity extends AppCompatActivity {
     private String Passwordt = "";
 
     FirebaseAuth mAuth;
-    DatabaseReference mDatabase;
+    DatabaseReference Datareference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mAuth = FirebaseAuth.getInstance();
-        mDatabase = FirebaseDatabase.getInstance().getReference();
+        Datareference = FirebaseDatabase.getInstance().getReference();
 
         Email = (EditText) findViewById(R.id.Emailedt);
         Password = (EditText) findViewById(R.id.passwordedt);
@@ -84,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
                     map.put("password",Passwordt);
 
                     String id = mAuth.getCurrentUser().getUid();
-                    mDatabase.child("Useres").child(id).setValue(map).addOnCompleteListener(new OnCompleteListener<Void>() {
+                    Datareference.child("Usuarios").child(id).setValue(map).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task2) {
                             if (task2.isSuccessful()){
