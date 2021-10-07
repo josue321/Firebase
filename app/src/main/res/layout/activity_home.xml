@@ -16,7 +16,8 @@
         android:ems="10"
         android:hint="Codigo"
         android:inputType="number"
-        android:paddingTop="15dp" />
+        android:paddingTop="15dp"
+        android:maxLength="6"/>
 
 
     <EditText
